@@ -1,0 +1,24 @@
+var getDomainFromUrl = require('./utils/getDomainFromUrl');
+
+var marshallStoryOverview = function(responseData) {
+  responseData = responseData || {};
+  var item = {};
+
+  var fullUrl = responseData.url || '';
+  var domain = getDomainFromUrl(fullUrl);
+
+  var currentUnixTime = Math.round(new Date() / 1000);
+  var itemUnixTime = responseData.time || currentUnixTime;
+
+  item.id = responseData.id || '-1';
+  item.title = responseData.title || '';
+  item.url = fullUrl;
+  item.author = responseData.by || '';
+  item.commentCount = responseData.descendants || 0;
+  item.domain = domain;
+  item.time = (new Date(itemUnixTime * 1000)).toISOString();
+
+  return item;
+};
+
+module.exports = marshallStoryOverview;
