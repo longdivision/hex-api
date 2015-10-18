@@ -17,6 +17,7 @@ var marshallStoryOverview = function(responseData) {
   item.commentCount = responseData.descendants || 0;
   item.domain = domain;
   item.time = (new Date(itemUnixTime * 1000)).toISOString();
+  item.score = responseData.score || 0;
 
   return item;
 };
