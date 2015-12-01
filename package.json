@@ -2,6 +2,9 @@
   "name": "hacker-news-api",
   "version": "0.0.1",
   "description": "",
+  "scripts": {
+    "start": "node src/server.js"
+  },
   "dependencies": {
     "express": "^4.13.3",
     "firebase": "^2.2.9",
