@@ -1,7 +1,8 @@
 {
   "name": "hacker-news-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "A client-ready Hacker News API.",
+  "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
     "start": "node src/server.js"
   },
@@ -13,7 +14,6 @@
     "response-time": "^2.3.1"
   },
   "engines": {
-    "node": "4.1.0",
-    "npm": "3.3.3"
+    "node": "4.2.2"
   }
 }
