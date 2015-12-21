@@ -1,12 +1,6 @@
-# Hacker News API
+# Hex API
 
-A client-ready Hacker News API.
-
-## Clients
-
-* [Hacker News Android](https://github.com/longdivision/hacker-news-android)
-
-## Usage
+A Hacker News API built as a [Backend for frontend (BFF)](https://www.thoughtworks.com/radar/techniques/bff-backend-for-frontends) for [Hex for Android](https://github.com/longdivision/hacker-news-android).
 
 ### Run
 

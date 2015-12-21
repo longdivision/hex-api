@@ -1,7 +1,7 @@
 {
-  "name": "hacker-news-api",
+  "name": "hex-api",
   "version": "0.0.1",
-  "description": "A client-ready Hacker News API.",
+  "description": "A Hacker News API built for Hex for Android.",
   "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
     "start": "node src/server.js"
