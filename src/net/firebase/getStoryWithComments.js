@@ -1,6 +1,7 @@
 var Q = require('q');
 var marshallStory = require('./marshallers/marshallStory');
 var getComments = require('./getComments');
+var addChildCommentCounts =  require('./utils/addChildCommentCounts');
 
 var getStoryWithComments = function(firebaseClient, itemId) {
   var deferred = Q.defer();
@@ -12,6 +13,7 @@ var getStoryWithComments = function(firebaseClient, itemId) {
 
     getComments(firebaseClient, childCommentIds).then(function(childComments){
       story.comments = childComments;
+      addChildCommentCounts(story);
       deferred.resolve(story);
     });
   });
