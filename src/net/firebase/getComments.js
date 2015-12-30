@@ -4,7 +4,7 @@ var marshallComment = require('./marshallers/marshallComment');
 var getComment = function(firebaseClient, commentId) {
   var deferred = Q.defer();
 
-  firebaseClient.child('item/' + commentId).on('value', function(snapshot) {
+  firebaseClient.child('item/' + commentId).once('value', function(snapshot) {
     var snapshotValue = snapshot.val() || {};
     var comment = marshallComment(snapshotValue);
     var childCommentIds = snapshotValue.kids || [];
