@@ -4,7 +4,7 @@
   "description": "A Hacker News API built for Hex for Android.",
   "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "express": "^4.13.3",
