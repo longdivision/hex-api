@@ -10,6 +10,7 @@
     "express": "^4.13.3",
     "firebase": "^2.2.9",
     "newrelic": "^1.24.0",
+    "node-cache": "^3.0.0",
     "psl": "^1.1.7",
     "q": "^1.4.1",
     "response-time": "^2.3.1"
