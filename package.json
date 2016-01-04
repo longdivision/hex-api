@@ -4,7 +4,8 @@
   "description": "A Hacker News API built for Hex for Android.",
   "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "mocha --recursive test/unit"
   },
   "dependencies": {
     "compression": "^1.6.0",
@@ -19,5 +20,9 @@
   },
   "engines": {
     "node": "4.2.2"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
   }
 }
