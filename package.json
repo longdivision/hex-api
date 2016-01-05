@@ -19,7 +19,7 @@
     "response-time": "^2.3.1"
   },
   "engines": {
-    "node": "4.2.2"
+    "node": "4.2.4"
   },
   "devDependencies": {
     "chai": "^3.4.1",
