@@ -5,7 +5,7 @@ var getTopStoryIds = function(firebaseClient) {
 
   firebaseClient.child('topstories').once('value', function(snapshot) {
     var storyIds = snapshot.val() || [];
-    storyIds = storyIds.slice(0, 29);
+    storyIds = storyIds.slice(0, 99);
 
     deferred.resolve(storyIds);
   });
