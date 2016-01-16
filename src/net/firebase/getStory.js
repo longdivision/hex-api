@@ -1,5 +1,6 @@
 var Q = require('q');
 var marshallStoryOverview = require('./marshallers/marshallStory');
+var addUrlForSelfPosts = require('./marshallers/addUrlForSelfPosts');
 
 var getStory = function(firebaseClient, itemId) {
   var deferred = Q.defer();
@@ -8,6 +9,7 @@ var getStory = function(firebaseClient, itemId) {
     var snapshotValue = snapshot.val() || {};
 
     var story = marshallStoryOverview(snapshotValue);
+    story = addUrlForSelfPosts(story);
 
     deferred.resolve(story);
   });
