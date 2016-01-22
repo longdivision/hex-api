@@ -1,9 +1,9 @@
-var getStoryWithComments = require('../net/firebase/getStoryWithComments');
+var getStoryWithComments = require('../net/firebase/getStoryWithComments')
 
-var getStory = function(apiClientFactory, itemId) {
-  var requestFactory = apiClientFactory('firebase');
+var getStory = function (apiClientFactory, itemId) {
+  var requestFactory = apiClientFactory('firebase')
 
-  return getStoryWithComments(requestFactory, itemId);
-};
+  return getStoryWithComments(requestFactory, itemId)
+}
 
-module.exports = getStory;
+module.exports = getStory

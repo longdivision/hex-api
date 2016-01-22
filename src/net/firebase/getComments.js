@@ -1,47 +1,47 @@
-var Q = require('q');
-var marshallComment = require('./marshallers/marshallComment');
+var Q = require('q')
+var marshallComment = require('./marshallers/marshallComment')
 
-var getComment = function(firebaseClient, commentId) {
-  var deferred = Q.defer();
+var getComment = function (firebaseClient, commentId) {
+  var deferred = Q.defer()
 
-  firebaseClient.child('item/' + commentId).once('value', function(snapshot) {
-    var snapshotValue = snapshot.val() || {};
-    var comment = marshallComment(snapshotValue);
-    var childCommentIds = snapshotValue.kids || [];
+  firebaseClient.child('item/' + commentId).once('value', function (snapshot) {
+    var snapshotValue = snapshot.val() || {}
+    var comment = marshallComment(snapshotValue)
+    var childCommentIds = snapshotValue.kids || []
 
-    var promises = childCommentIds.map(function(childCommentId) {
-      return getComment(firebaseClient, childCommentId);
-    });
+    var promises = childCommentIds.map(function (childCommentId) {
+      return getComment(firebaseClient, childCommentId)
+    })
 
-    Q.allSettled(promises).then(function(results) {
-      var childComments = results.map(function(result) {
-        return result.value;
-      });
+    Q.allSettled(promises).then(function (results) {
+      var childComments = results.map(function (result) {
+        return result.value
+      })
 
-      comment.comments = childComments;
-      deferred.resolve(comment);
-    });
-  });
+      comment.comments = childComments
+      deferred.resolve(comment)
+    })
+  })
 
-  return deferred.promise;
-};
+  return deferred.promise
+}
 
-var getComments = function(firebaseClient, commentIds) {
-  var deferred = Q.defer();
+var getComments = function (firebaseClient, commentIds) {
+  var deferred = Q.defer()
 
-  var promises = commentIds.map(function(childCommentId) {
-    return getComment(firebaseClient, childCommentId);
-  });
+  var promises = commentIds.map(function (childCommentId) {
+    return getComment(firebaseClient, childCommentId)
+  })
 
-  Q.allSettled(promises).then(function(results) {
-    var childComments = results.map(function(result) {
-      return result.value;
-    });
+  Q.allSettled(promises).then(function (results) {
+    var childComments = results.map(function (result) {
+      return result.value
+    })
 
-    deferred.resolve(childComments);
-  });
+    deferred.resolve(childComments)
+  })
 
-  return deferred.promise;
-};
+  return deferred.promise
+}
 
-module.exports = getComments;
+module.exports = getComments

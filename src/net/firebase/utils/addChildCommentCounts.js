@@ -1,13 +1,13 @@
-var addChildCommentsCount = function(comment) {
-  var size = 0;
+var addChildCommentsCount = function (comment) {
+  var size = 0
 
-  comment.comments.forEach(function(comment) {
-    size += 1;
-    size += addChildCommentsCount(comment);
-  });
+  comment.comments.forEach(function (comment) {
+    size += 1
+    size += addChildCommentsCount(comment)
+  })
 
-  comment.commentCount = size;
-  return size;
-};
+  comment.commentCount = size
+  return size
+}
 
-module.exports = addChildCommentsCount;
+module.exports = addChildCommentsCount

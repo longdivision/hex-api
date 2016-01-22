@@ -1,24 +1,24 @@
-var Firebase = require('firebase');
+var Firebase = require('firebase')
 
-var API_URL = 'https://hacker-news.firebaseio.com/v0/';
-var clients = {};
+var API_URL = 'https://hacker-news.firebaseio.com/v0/'
+var clients = {}
 
-var getFirebaseClient = function() {
+var getFirebaseClient = function () {
   if (!clients.firebase) {
-    clients.firebase = new Firebase(API_URL);
+    clients.firebase = new Firebase(API_URL)
   }
 
-  return clients.firebase;
-};
+  return clients.firebase
+}
 
-var apiClientFactory = function(name) {
-  var apiClient;
+var apiClientFactory = function (name) {
+  var apiClient
 
   if (name === 'firebase') {
-    apiClient = getFirebaseClient();
+    apiClient = getFirebaseClient()
   }
 
-  return apiClient;
-};
+  return apiClient
+}
 
-module.exports = apiClientFactory;
+module.exports = apiClientFactory

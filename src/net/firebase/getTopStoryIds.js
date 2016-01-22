@@ -1,16 +1,16 @@
-var Q = require('q');
+var Q = require('q')
 
-var getTopStoryIds = function(firebaseClient) {
-  var deferred = Q.defer();
+var getTopStoryIds = function (firebaseClient) {
+  var deferred = Q.defer()
 
-  firebaseClient.child('topstories').once('value', function(snapshot) {
-    var storyIds = snapshot.val() || [];
-    storyIds = storyIds.slice(0, 99);
+  firebaseClient.child('topstories').once('value', function (snapshot) {
+    var storyIds = snapshot.val() || []
+    storyIds = storyIds.slice(0, 99)
 
-    deferred.resolve(storyIds);
-  });
+    deferred.resolve(storyIds)
+  })
 
-  return deferred.promise;
-};
+  return deferred.promise
+}
 
-module.exports = getTopStoryIds;
+module.exports = getTopStoryIds

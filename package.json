@@ -5,7 +5,8 @@
   "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --recursive test/unit"
+    "test": "mocha --recursive test/unit",
+    "lint": "standard --format"
   },
   "dependencies": {
     "compression": "^1.6.0",
@@ -23,6 +24,10 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "standard": "^5.4.1"
+  },
+  "standard": {
+    "globals": [ "describe", "it" ]
   }
 }
