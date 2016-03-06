@@ -1,6 +1,6 @@
 {
   "name": "hex-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Hacker News API built for Hex for Android.",
   "author": "Sean Powell <sean@longdivision.co.uk>",
   "scripts": {
