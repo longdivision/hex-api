@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha --recursive test/unit",
-    "lint": "standard --format"
+    "lint": "eslint --fix **/* "
   },
   "dependencies": {
     "compression": "^1.6.0",
@@ -29,10 +29,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "standard": "^5.4.1"
-  },
-  "standard": {
-    "globals": [ "describe", "it" ]
+    "eslint": "^2.5.1",
+    "mocha": "^2.3.4"
   }
 }

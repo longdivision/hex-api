@@ -1,0 +1,11 @@
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    "max-len":  [1, 80, 4]
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  }
+}
