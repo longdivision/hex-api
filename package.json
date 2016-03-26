@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "description": "A Hacker News API built for Hex for Android.",
   "author": "Sean Powell <sean@longdivision.co.uk>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:longdivision/hex-api.git"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha --recursive test/unit",
