@@ -15,7 +15,7 @@ var appFactory = function (cache) {
 
   app.get('/front-page', frontPage.bind(null, apiClientFactory, cache))
   app.get('/story/:id', story.bind(null, apiClientFactory, cache))
-  app.get('/search', search)
+  app.get('/search/stories', search)
 
   return app
 }
