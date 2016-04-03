@@ -1,5 +1,5 @@
 var config = require('../../../config')
-var getDomainFromUrl = require('./utils/getDomainFromUrl')
+var getDomainFromUrl = require('../../utils/getDomainFromUrl')
 
 var marshallStoryOverview = function (responseData) {
   responseData = responseData || {}

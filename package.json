@@ -10,8 +10,9 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --recursive test/unit",
-    "lint": "eslint --fix **/* "
+    "test": "npm run unit && npm run lint",
+    "unit": "mocha --recursive test/unit",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "compression": "^1.6.0",
@@ -22,7 +23,8 @@
     "node-schedule": "^0.6.0",
     "psl": "^1.1.7",
     "q": "^1.4.1",
-    "response-time": "^2.3.1"
+    "response-time": "^2.3.1",
+    "superagent": "^1.8.3"
   },
   "engines": {
     "node": "4.4.1"

@@ -4,6 +4,7 @@ var compression = require('compression')
 
 var frontPage = require('./controllers/frontPage')
 var story = require('./controllers/story')
+var search = require('./controllers/search')
 var apiClientFactory = require('./factory/apiClientFactory')
 
 var appFactory = function (cache) {
@@ -14,6 +15,7 @@ var appFactory = function (cache) {
 
   app.get('/front-page', frontPage.bind(null, apiClientFactory, cache))
   app.get('/story/:id', story.bind(null, apiClientFactory, cache))
+  app.get('/search', search)
 
   return app
 }
