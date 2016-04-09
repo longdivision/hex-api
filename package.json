@@ -12,7 +12,8 @@
     "start": "node src/index.js",
     "test": "npm run unit && npm run lint",
     "unit": "mocha --recursive test/unit",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "generate-docs": "aglio -i docs/hex-api.apib -o docs/generated/index.html --theme-template triple --theme-variables streak"
   },
   "dependencies": {
     "compression": "^1.6.0",

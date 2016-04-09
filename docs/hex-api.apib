@@ -1,0 +1,191 @@
+FORMAT: 1A
+HOST: http://api.hexforhn.com
+
+# Hex API
+
+A client-friendly Hacker News API build for [Hex for Android](https://github.com/longdivision/hacker-news-android).
+
+[View on GitHub.](https://github.com/longdivision/hex-api)
+
+# Group Stories
+
+## Ask HN stories [/stories/ask]
+
+### Ask HN stories [GET]
+
+Get the latest 100 _Ask HN_ stories.
+
++ Response 200 (application/json)
+
+        [
+          {
+            id: 11461370,
+            title: "Ask HN: Is it worth paying for a Coursera course?",
+            url: "https://news.ycombinator.com/item?id=11461370",
+            commentsUrl: "https://news.ycombinator.com/item?id=11461370",
+            author: "eecks",
+            commentCount: 56,
+            domain: "news.ycombinator.com",
+            time: "2016-04-09T14:32:11.000Z",
+            score: 57
+          },
+          ...
+        ]
+
+## Job stories [/stories/jobs]
+
+### Job stories [GET]
+
+Get the latest 100 job stories.
+
++ Response 200 (application/json)
+
+        [
+          {
+            id: 11462986,
+            title: "BuildZoom (YC W13) Is Hiring Full Stack, Front End, and Data Engineers",
+            url: "https://jobs.lever.co/buildzoom",
+            commentsUrl: "https://news.ycombinator.com/item?id=11462986",
+            author: "the_economist",
+            commentCount: 0,
+            domain: "lever.co",
+            time: "2016-04-09T19:53:52.000Z",
+            score: 1
+          },
+          ...
+        ]
+
+## New stories [/stories/new]
+
+### New stories [GET]
+
+Get the latest 100 stories.
+
++ Response 200 (application/json)
+
+        [
+          {
+            id: 11463104,
+            title: "Running Barefoot",
+            url: "http://barefootrunning.fas.harvard.edu/",
+            commentsUrl: "https://news.ycombinator.com/item?id=11463104",
+            author: "computerjunkie",
+            commentCount: 0,
+            domain: "harvard.edu",
+            time: "2016-04-09T20:20:03.000Z",
+            score: 1
+          },
+          ...
+        ]
+
+## Show HN stories [/stories/show]
+
+### Show HN stories [GET]
+
+Get the latest 'Show HN' stories.
+
++ Response 200 (application/json)
+
+        [
+          {
+            id: 11462287,
+            title: "Show HN: Ghost Blog Auto Setup Scripts with Nginx and WAF",
+            url: "https://github.com/hwdsl2/setup-ghost-blog",
+            commentsUrl: "https://news.ycombinator.com/item?id=11462287",
+            author: "hwdsl2",
+            commentCount: 0,
+            domain: "github.com",
+            time: "2016-04-09T17:38:16.000Z",
+            score: 2
+          },
+          ...
+        ]
+
+## Top stories [/stories/top]
+
+### Top stories [GET]
+
+Get the current top 100 stories.
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: 10904671,
+                title: "Dear GitHub",
+                url: "https://github.com/dear-github/dear-github",
+                commentsUrl: "https://news.ycombinator.com/item?id=10904671",
+                author: "msvan",
+                commentCount: 490,
+                domain: "github.com",
+                time: "2016-01-14T21:33:17.000Z",
+                score: 1678
+            },
+            ...
+        ]
+
+
+## Story [/story/{id}]
+
+### Story [GET]
+
+Get a story by its ID.
+
+Includes all child-comments, nested under `comments` in the response.
+
++ Parameters
+
+    + id (number) - ID of the story
+
++ Response 200 (application/json)
+
+        {
+            id: 10904671,
+            title: "Dear GitHub",
+            url: "https://github.com/dear-github/dear-github",
+            commentsUrl: "https://news.ycombinator.com/item?id=10904671",
+            author: "msvan",
+            commentCount: 490,
+            domain: "github.com",
+            time: "2016-01-14T21:33:17.000Z",
+            score: 1678,
+            comments: [
+                {
+                    author: "jonobacon",
+                    text: "Hi Adam, Addy, Andreas, Ariya, Forbes, James, Henry, John-David, Juriy , Ken, Nicholas, Pascal, Sam, Sindre,<p>My name is Jono and I started as Director of Community back in November at GitHub. Obviously I am pretty new at GitHub, but I thought I would weigh in.<p>Firstly, thanks for your feedback. I think it is essential that GitHub always has a good sense of not just what works well for our users, but also where the pain points are. Constructive criticism is an important of doing great work. I appreciate how specific and detailed you were in your feedback. Getting a good sense of specific problems provides a more fruitful beginning to a conversation than &quot;it suxx0rs&quot;, so I appreciate that.<p>I am still figuring out how GitHub fits together as an organization but I am happy to take a look into these issues and ensure they are considered in how future work is planned. We have a growing product team at GitHub that I know is passionate about solving the major pain points that rub up against our users. Obviously I can&#x27;t make any firm commitments as I am not on the product team, but I can ensure the right eyeballs are on this. I also want to explore with my colleagues how we can be a little clearer about future feature and development plans to see if we can reduce some ambiguity.<p>As I say, I am pretty new, so I am still getting the lay of the land, but feel free to reach out to me personally if you have any further questions or concerns about this or any other issue. I am at jono@github.com.",
+                    time: "2016-01-14T22:43:57.000Z",
+                    comments: [ ... ]
+                 }
+                 ...
+             }
+        }
+
+# Group Search
+
+## Search Stories [/search/stories?q={q}]
+
+### Search Stories [GET]
+
+Search stories by keyword. Leverages [Algolia's](https://www.algolia.com/) [HN Search API](https://hn.algolia.com/api).
+
++ Parameters
+
+    + q (string) - The search keywords
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                    id: 10904671,
+                    title: "Dear GitHub",
+                    url: "https://github.com/dear-github/dear-github",
+                    commentsUrl: "https://news.ycombinator.com/item?id=10904671",
+                    author: "msvan",
+                    commentCount: 490,
+                    domain: "github.com",
+                    time: "2016-01-14T21:33:17.000Z",
+                    score: 1678
+                },
+            ]
+        }

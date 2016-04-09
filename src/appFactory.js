@@ -19,6 +19,7 @@ var appFactory = function (cache) {
   app.get('/front-page', topController.bind(null, cache))
   app.get('/story/:id', storyController.bind(null, cache))
 
+  app.use('/', express.static('docs/generated'));
   app.get('/stories/ask', askController.bind(null, cache))
   app.get('/stories/jobs', jobsController.bind(null, cache))
   app.get('/stories/new', newController.bind(null, cache))
