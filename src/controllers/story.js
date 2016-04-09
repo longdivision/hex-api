@@ -1,8 +1,9 @@
-var getStory = require('../service/getStory')
+var clientFactory = require('../net/firebase/clientFactory')
+var getStoryWithComments = require('../net/firebase/getStoryWithComments')
 
 const CACHE_KEY_PREFIX = 'STORY_'
 
-var story = function (apiClientFactory, cache, request, response) {
+var story = function (cache, request, response) {
   var id = request.params.id
   var cacheKey = CACHE_KEY_PREFIX + id
 
@@ -16,7 +17,9 @@ var story = function (apiClientFactory, cache, request, response) {
   if (cachedStory) {
     response.json(cachedStory)
   } else {
-    getStory(apiClientFactory, request.params.id).then(function (story) {
+    var client = clientFactory.getClient()
+
+    getStoryWithComments(client, request.params.id).then(function (story) {
       cache.set(cacheKey, story)
       response.json(story)
     })

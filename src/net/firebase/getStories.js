@@ -1,11 +1,9 @@
 var Q = require('q')
-var getStory = require('../net/firebase/getStory')
+var getStory = require('./getStory')
 
-var getStories = function (apiClientFactory, itemIds) {
-  var requestFactory = apiClientFactory('firebase')
-
+var getStories = function (firebaseClient, itemIds) {
   var promises = itemIds.map(function (itemId) {
-    return getStory(requestFactory, itemId)
+    return getStory(firebaseClient, itemId)
   })
 
   return Q.allSettled(promises).then(function (results) {
