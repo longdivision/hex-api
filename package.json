@@ -16,23 +16,24 @@
     "generate-docs": "aglio -i docs/hex-api.apib -o docs/generated/index.html --theme-template triple --theme-variables streak"
   },
   "dependencies": {
-    "compression": "^1.6.0",
-    "express": "^4.13.3",
-    "firebase": "^2.2.9",
-    "newrelic": "^1.24.0",
-    "node-cache": "^3.0.0",
-    "node-schedule": "^0.6.0",
-    "psl": "^1.1.7",
-    "q": "^1.4.1",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "firebase": "^3.4.0",
+    "newrelic": "^1.30.3",
+    "node-cache": "^3.2.1",
+    "node-schedule": "^1.1.1",
+    "psl": "^1.1.14",
+    "q": "^2.0.3",
     "response-time": "^2.3.1",
-    "superagent": "^1.8.3"
+    "superagent": "^2.2.0"
   },
   "engines": {
-    "node": "4.4.1"
+    "node": "6.6.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "eslint": "^2.5.1",
-    "mocha": "^2.3.4"
+    "aglio": "*",
+    "chai": "*",
+    "eslint": "*",
+    "mocha": "*"
   }
 }
