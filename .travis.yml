@@ -1,8 +1,5 @@
 language: node_js
-
-node_js: "6.6.0"
-
-# For Aglio/Protagonist:
+node_js: 6.6.0
 addons:
   apt:
     sources:
@@ -11,3 +8,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 env: CXX="g++-4.8" CC="gcc-4.8"
+deploy:
+  provider: heroku
+  api_key:
+    secure: Mmn3jmKvbLiHKVyPNnxJpdd4Sq6JnaHFkfr5kbGoSPLP/BR7BaefVIbe8JYN+Lo8GJJAcJBsJUESICj/JVxY+JpJ/cbTcrSzM2L9+d5wZCes4VHihxhjB9DLe5R+TV8jH8GdD4mMlW5UMcXIb2AHEBnJoKQgvKglkXlLyQPB7TR5MQhZmj+SrHnVbI2qVYRkwG1D8CSXTQAxvbqWjgNPB8h1z8p7tE+IddDSMlVXdEQ1xLKveUJ+yOujR9jgb7x4WYE3CAAFRQvMimPKsXRA06GmTyK7M9qN2My5/xD44FmZjz5z+N+eIBpVzkgIsdQumPjhoEKKDp7sP/wm/namQt9Nbc+YV6c6RFenGFr30x8pmYAkNFWMZRbLlvQMoivLiKBmB+BMrcW9ft/lTGhhUySjrofHqL6A2okIk3lgGUCnnDfF4rnzNq13HV4mbC1X81praX90wpgzAW4HH2gJHGIvjGnfDfONICHKp6Te0sdn42wAwDAObJHZaOVqFBMyOPqTfy265J5uH2eujqGpxFJ1+igdrBsFEmjg+b95kqTERHngcoKmyhEMipnyE8rNv7caIYFEmT9uLRYtGvGMU0pYIu13U0W56lsOc/2hiKQtCB+wBsYkcm4Y7hJ/TUnsRU7fH59lz3yhmSN1evxA1y4/f79aD8tSbEGCmGZYqj4=
