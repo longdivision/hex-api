@@ -1,6 +1,7 @@
 var express = require('express')
 var responseTime = require('response-time')
 var compression = require('compression')
+var morgan = require('morgan')
 
 var askController = require('./controllers/ask')
 var jobsController = require('./controllers/jobs')
@@ -14,6 +15,7 @@ var appFactory = function (cache) {
   var app = express()
   app.use(compression())
   app.use(responseTime())
+  app.use(morgan('short'))
   app.set('port', (process.env.PORT || 5000))
 
   app.get('/front-page', topController.bind(null, cache))
