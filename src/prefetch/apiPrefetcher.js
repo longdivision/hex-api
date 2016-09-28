@@ -27,7 +27,7 @@ var cache = {
 }
 
 var apiPrefetcher = function () {
-  var firebaseClient = clientFactory.getClient(process.env.REDIS_URL)
+  var firebaseClient = clientFactory.getClient()
 
   Object.keys(COLLECTION_NAME_TO_CACHE_KEY).forEach(function(collectionName) {
     getStoryCollection(firebaseClient, collectionName, ITEMS_TO_LOAD)
@@ -47,7 +47,7 @@ var apiPrefetcher = function () {
 
 logger.log('HN API prefetcher running');
 
-var redisClient = redis.createClient();
+var redisClient = redis.createClient(process.env.REDIS_URL);
 var ONE_MINUTE_IN_MS = 60 * 1000;
 
 setInterval(function() {
