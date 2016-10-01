@@ -2,7 +2,6 @@ if (process.env.NEW_RELIC_LICENSE_KEY) { require('newrelic') }
 
 var logger = require('js-logger')
 var redis = require("redis")
-var merge = require('deepmerge')
 
 var appFactory = require('./appFactory')
 
@@ -27,9 +26,10 @@ app.listen(app.get('port'), function () {
 var redisClient = redis.createClient(process.env.REDIS_URL);
 var TWO_MINUTES_IN_MS = 2 * 60 * 1000;
 var loadPrefetchedData = function() {
-  redisClient.get("hex-api-data", function(err, data) {
-    if (data) {
-      cacheData = merge(cacheData, JSON.parse(data))
+  redisClient.get("hex-api-data", function(err, prefetchedData) {
+    if (prefetchedData) {
+      prefetchedData = JSON.parse(prefetchedData)
+      cacheData = Object.assign(cacheData, prefetchedData)
       logger.info('Received latest prefetched API data')
     } else {
       logger.info('Prefetched API data not available')
